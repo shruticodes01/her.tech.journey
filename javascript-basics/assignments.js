@@ -22,6 +22,7 @@ const country = "Germany";
 const continent = "Europe";
 let population = 25000000;
 
+
 console.log(country, continent, population);
 
 // Declare a variable called isIsland and set its value according to your country. 
@@ -83,6 +84,27 @@ if(population < avgPopulation){
 
 description = "Germany is in Europe, and its 25 million people speak Deutsch";
 console.log(description);
+
+//Correct Solution for Basic Operators 
+population = 25;
+console.log(population / 2);
+
+population++;
+
+console.log(population);
+console.log(population > 6);
+console.log(population < 33);
+
+const description1 =
+  country +
+  ' is in ' +
+  continent +
+  ', and its ' +
+  population +
+  ' million people speak ' +
+  language;
+
+console.log(description1);
 
 // Basic operators
 
