@@ -20,7 +20,7 @@ console.log("JavaScript is working!");
 
 const country = "Germany";
 const continent = "Europe";
-let population = 2 + "Billion";
+let population = 25000000;
 
 console.log(country, continent, population);
 
@@ -57,8 +57,32 @@ if (!language) { // this returns true for : null, undefined, 0, false
 console.log(language ?? "default language") // if language has value, print languages otherwise a default value
 // data types
 
-
 // let, const, var
+let splitPopulation = population/2;
+console.log(splitPopulation);
+
+newPopulation = population + 1; //25000001
+doublePopulation = population + population++; // 50000000
+console.log(newPopulation);
+console.log(doublePopulation);
+
+let populationFinland = 6000000;
+
+if (population < populationFinland){
+    console.log("My country has less population than Finland!")
+} else {
+    console.log("My country is more populated than Finland!")
+}
+
+let avgPopulation = 33000000;
+if(population < avgPopulation){
+    console.log("My country has less population than a country with average population of 33 million");
+} else {
+    console.log("My country has more people than 33 million");
+}
+
+description = "Germany is in Europe, and its 25 million people speak Deutsch";
+console.log(description);
 
 // Basic operators
 
