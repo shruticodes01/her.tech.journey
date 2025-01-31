@@ -111,6 +111,10 @@ const description2 = `${country}` +  "is in"  +  `${continent}`  +  ", and its" 
 
 console.log(description2);
 
+// Correct Solution
+const description = `${country} is in ${continent}, and its ${population} million people speak ${language}`;
+
+
 // strings
 
 // if/else
