@@ -84,8 +84,8 @@ if (population < avgPopulation) {
   console.log("My country has more people than 33 million");
 }
 
-description = "Germany is in Europe, and its 25 million people speak Deutsch";
-console.log(description);
+description10 = "Germany is in Europe, and its 25 million people speak Deutsch";
+console.log(description10);
 
 //Correct Solution for Basic Operators
 population = 13;
