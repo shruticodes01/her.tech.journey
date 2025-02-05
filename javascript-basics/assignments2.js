@@ -74,7 +74,7 @@ console.log(describePopulationIndia);
 console.log(describePopulationUS);
 console.log(describePopulationJapan);
 
-// Practicing functions -- (100jsfunctions.com / learn-js.org )
+// Practicing functions -- (100jsfunctions.com)
 
 // Write a function named minutesToHours that receives a number of minutes as parameter and returns a number representing the same amount of time but in hours.
 
@@ -179,3 +179,85 @@ const lastNRevert = (text, n) => {
 
 console.log(lastNRevert("Happiness", 4));
 
+//Practicing Functions (w3resource.com)
+
+//Reverse Number
+
+const reversedNum = function(num){
+  const convertNum = num.toString();
+
+  return convertNum.split("").reverse().join("");
+}
+
+console.log(reversedNum(47890));
+console.log(reversedNum(285640));
+
+// Write a JavaScript function that checks whether a passed string is a palindrome or not?
+// A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
+
+function checkPalindrome(str) {
+const halfString = str/2 + "";
+const halfString2 = halfString.split("").reverse().join("");
+if(halfString === halfString2){
+  return console.log(`${str} is a Palindrome. It reads the same backward as forward.`);
+} else {
+  return console.log(`${str} is NOT a Palindrome.`);
+}
+
+}
+
+checkPalindrome("madam");
+checkPalindrome("nurses");
+
+
+// correct answer : 
+
+function check_Palindrome(str_entry){
+  // Change the string into lower case and remove  all non-alphanumeric characters
+     var cstr = str_entry.toLowerCase().replace(/[^a-zA-Z0-9]+/g,'');
+    var ccount = 0;
+  // Check whether the string is empty or not
+    if(cstr==="") {
+      console.log("Nothing found!");
+      return false;
+    }
+  // Check if the length of the string is even or odd 
+    if ((cstr.length) % 2 === 0) {
+      ccount = (cstr.length) / 2;
+    } else {
+  // If the length of the string is 1 then it becomes a palindrome
+      if (cstr.length === 1) {
+        console.log("Entry is a palindrome.");
+        return true;
+      } else {
+  // If the length of the string is odd ignore middle character
+        ccount = (cstr.length - 1) / 2;
+      }
+    }
+  // Loop through to check the first character to the last character and then move next
+    for (var x = 0; x < ccount; x++) {
+  // Compare characters and drop them if they do not match 
+      if (cstr[x] != cstr.slice(-1-x)[0]) {
+        console.log("Entry is not a palindrome.");
+        return false;
+      }
+    }
+    console.log("The entry is a palindrome.");
+    return true;
+  }
+  check_Palindrome('madam');
+  check_Palindrome('nursesrun');
+  check_Palindrome('fox');
+
+
+  //Capitalize First Letter of Each Word --- incomplete
+
+  const capitalizeFirstLetter = function(str) {
+
+   const splitWords = str.split(" ")[0][0].toUpperCase();
+    return splitWords;
+   } 
+     
+  console.log(capitalizeFirstLetter("lion is the king of the jungle"));
+
+  
