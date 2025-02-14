@@ -321,6 +321,100 @@ const lastNRevert = (text, n) => {
 
 console.log(lastNRevert("Happiness", 4));
 
+// Write a function named getBusinessAddress that receives an Object representing a business as a parameter,
+// and returns a string representation of the it's address.
+
+const mybusiness = {
+  name: "XYZ Functions ltd.",
+  employees: 40,
+  address: {
+    number: 3,
+    street: "Avenuepark",
+    zipCode: 123500,
+  },
+};
+
+function getBusinessAddress(business) {
+  business = mybusiness.address;
+
+  return `${business.street}, number ${business.number}, ${business.zipCode}`;
+}
+
+console.log(getBusinessAddress());
+
+// Write a function named getUserObject that receives 3 parameters:
+
+//a string named firstName
+//a string named lastName
+//a number named age
+
+//and returns an object representing an user, with the properties name and age.
+
+const getUserObject = function (firstName, lastName, age) {
+  const user = { name: firstName + " " + lastName, age };
+
+  return user;
+};
+console.log(getUserObject());
+
+//Write a function named canDriveCar that receives 2 parameters:
+
+//an object named user
+//an object named car
+
+//and returns a boolean indicating if the user can drive the car or not.
+
+// Note: anybody can drive a car if it has at least 18 years old or if the car has an engine smaller than 1000cc.
+
+const canDriveCar = function (user, car) {
+  if (user <= 18 || car < 1000) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+// Write a function named areAllNumbersEven that receives an Array of numbers as parameter,
+// and returns a boolean indicating if all the numbers are even or not.
+
+function areAllNumbersEven(numbers) {
+  if (numbers % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Write a function named getBiggestNumberInArrays that receives 2 parameters:
+
+//an array of numbers named numbers1
+//another array of numbers named numbers2
+
+//and returns the maximum number between those 2 arrays.
+
+const myNumbers1 = [7, 2, 9];
+const myNumbers2 = [15, 28, 42];
+
+const getBiggestNumberInArrays = function (numbers1, numbers2) {
+  for (let i = 0; i < myNumbers1.length; i++) {
+    numbers1 = myNumbers1[i];
+  }
+
+  for (let j = 0; j < myNumbers2.length; j++) {
+    numbers2 = myNumbers2[j];
+  }
+
+  return Math.max(numbers1, numbers2);
+};
+
+console.log(getBiggestNumberInArrays());
+
+//Write a function named getLongestString that receives an Array of strings as parameter and returns the longest one.
+
+//If the Array is empty, return an empty string.
+
+//If there are multiple strings of the same maximum length, return the first one.
+
 //Practicing Functions (w3resource.com)
 
 //Reverse Number
