@@ -57,3 +57,88 @@ textarea:not([rows]) {
 #__next {
     isolation: isolate;
 }
+
+body {
+    color: #333;
+    background: linear-gradient(to top left, #28b487, #7dd56f);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+}
+
+.center {
+    padding: 6rem;
+}
+
+.show-modal {
+    background: #fff;
+    border: none;
+    border-radius: 2rem;
+    padding: .75em 1.5em;
+    font-size: 1.5rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.show-modal+.show-modal {
+    margin-left: 1.5em;
+}
+
+.close-modal {
+    position: absolute;
+    top: 3rem;
+    right: 3.5rem;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.modal__title {
+    font-size: 2.35rem;
+    margin-bottom: .5em;
+
+}
+
+.modal__text {
+    font-size: 1.8rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+
+    background: #fff;
+    padding: 4rem;
+    border-radius: .5rem;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
