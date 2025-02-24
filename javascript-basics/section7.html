@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess My Number</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="container intro">
+        <div class="hero__display">
+            <button class="btn again">Again!</button>
+            <p>(Between 1 and 20)</p>
+        </div>
+    </header>
+    <main class="container hero">
+
+        <h1 class="hero__center hero__title fs__title">Guess My Number</h1>
+        <div class="hero__center">
+            <p class="fs__l hero__shape number">?</p>
+        </div>
+
+        <section class="hero__display">
+            <div>
+                <div>
+                    <label for="guessNum"></label>
+                    <input class="input__box--style guess" size="12" type="number" id="guessNum" name="guessNum" />
+                </div>
+                <button class="btn btn__display check">Check!</button>
+            </div>
+            <div>
+                <p class="hero__style message">Start guessing...</p>
+                <div>
+                    <p class="label-score">💯 Score: <span class="score">20</span></p>
+                    <p class="label-highscore">🥇 Highscore: <span class="highscore">0</span></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="assignments3.js"></script>
+</body>
+
+</html>

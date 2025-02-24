@@ -1,0 +1,134 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #302f2f;
+    color: #fff;
+    font-family: "Press Start 2P", sans-serif;
+}
+
+.fs__l {
+    font-size: 2.5rem;
+}
+
+.fs__title {
+    font-size: 3.5rem;
+}
+
+.btn {
+    padding: 1em 1.5em;
+}
+
+.hero__center {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+}
+
+.intro,
+.hero {
+    padding: 2rem 0;
+}
+
+.hero__display {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.hero__style {
+    margin-bottom: 3rem;
+}
+
+.hero__title {
+    margin: 2.25em 0 .75em;
+
+}
+
+.input__box--style {
+    background: inherit;
+    border: 3px solid #fff;
+    padding: 1.5em 0.5em 1.5em 1em;
+    margin-bottom: 1.25em;
+    color: #fff;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.btn__display {
+    display: block;
+}
+
+.hero__shape {
+    background: #fff;
+    color: #302f2f;
+    width: 15rem;
+    padding: 3rem 0;
+    text-align: center;
+    margin: 1em 0 1.75em 0;
+}

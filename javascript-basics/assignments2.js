@@ -208,288 +208,254 @@ while (i < populations.length) {
   i++;
 }
 console.log(percentages3);
-// Practicing functions -- (100jsfunctions.com)
 
-// Write a function named minutesToHours that receives a number of minutes as parameter and returns a number representing the same amount of time but in hours.
+// Video 59
+// Given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error.
 
-function minutesToHours(minutes) {
-  const convertToHour = minutes / 60;
-  return convertToHour;
-}
-console.log(minutesToHours(300));
-console.log(minutesToHours(120));
-
-// Write a function named averageOf4Numbers that receives 4 numbers as parameters and returns the mathematical average between them.
-
-const averageOf4Numbers = function (num1, num2, num3, num4) {
-  return (num1 + num2 + num3 + num4) / 4;
-};
-
-console.log(averageOf4Numbers(5, 20, 25, 30));
-console.log(averageOf4Numbers(8, 16, 64, 126));
-
-// Write a function named concat3 that receives 3 strings as parameters (string1, string2, string3) and an additional string named separator.
-// The function should concatenate the three strings using the provided separator and return the result.
-
-const concat3 = (string1, string2, string3, separator) => {
-  return `${string1}${separator}${string2}${separator}${string3}`;
-};
-console.log(concat3("HTML", "CSS", "JavaScript", ","));
-
-// Write a function named max5 that receives 5 numbers as parameters and returns the biggest one between them.
-
-function max5(nr1, nr2, nr3, nr4, nr5) {
-  return Math.max(nr1, nr2, nr3, nr4, nr5);
-}
-
-console.log(max5(10, 35, 75, 225, 675));
-
-// Write a function name getMonthsNeededToWait that receives 2 numbers as parameters, representing the index of two months.
-// The function should return the number of months we have to wait, to get from the first month to the second one.
-//                    0      1      2       3       4      5        6      7      8      9     10      11
-
-const totalMonths = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "April",
-  "May",
-  "June",
-  "July",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+const temperatures = [3, -2, -6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
+const temperatures1 = [
+  "error",
+  -5,
+  8,
+  -3,
+  1,
+  0,
+  4,
+  6,
+  11,
+  16,
+  14,
+  -6,
+  11,
+  25,
+  5,
+  "error",
+  0,
+  -6,
+  9,
+];
+const temperatures2 = [0, 0, 0, 0, 0, -2, 0, 0];
+const temperatures3 = [0, 0, 15, 0, 0, 0, 0];
+const temperatures4 = [0, 0, "error", 15, 2, -6, 0];
+const temperatures5 = [15, 15, 15, 15, 15, 15, 15];
+const temperatures6 = [-8, -8, -8, -8, -8, -8, -8, -8, -8];
+const temperatures7 = [
+  "error",
+  "error",
+  "error",
+  "error",
+  "error",
+  "error",
+  "error",
 ];
 
-function getMonthsNeededToWait(index1, index2) {
-  if (index1 > index2) {
-    return index1 - index2 + 1;
-  } else {
-    return index2 - index1;
-  }
-}
-console.log(
-  getMonthsNeededToWait(totalMonths.indexOf("Mar"), totalMonths.indexOf("June"))
-);
-console.log(
-  getMonthsNeededToWait(totalMonths.indexOf("Aug"), totalMonths.indexOf("Feb"))
-);
+// formula to calculate ---- amplitude = max-min
 
-// correct solution :
+const calcAmplitude = function (temps) {
+  let max = temps[0];
+  let min = temps[0];
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
 
-function getMonthsNeededToWait(index1, index2) {
-  if (index2 >= index1) {
-    return index2 - index1;
-  }
+    if (typeof currentTemp !== "number") continue;
+    if (currentTemp > max) {
+      max = currentTemp;
+    }
 
-  const monthsUntillNewYear = 12 - index1;
-  return monthsUntillNewYear + index2;
-}
-console.log(
-  getMonthsNeededToWait(totalMonths.indexOf("Mar"), totalMonths.indexOf("June"))
-);
-console.log(
-  getMonthsNeededToWait(totalMonths.indexOf("Aug"), totalMonths.indexOf("Feb"))
-);
-
-//You're driving to a new city for a small weekend trip. Write a function named getGasolineAmount that receives 2 numbers as parameters:
-
-//the number of kilometers to your destination
-//average consumption of liters per 100km
-
-//The function should return the amount of gasoline needed to complete the entire round-trip.
-
-const getGasolineAmount = function (kilometers, litre) {
-  return ((kilometers * litre) / 100) * 2;
-};
-console.log(getGasolineAmount(300, 5.8));
-
-// Write a function named lastNRevert that receives 2 parameters:
-
-//a string named text
-//a number - n
-
-//and returns the last n characters of text but in reverse order.
-
-const lastNRevert = (text, n) => {
-  const numChar = text.slice(-n);
-
-  return numChar.split("").reverse().join(""); // to reverse a string
-};
-
-console.log(lastNRevert("Happiness", 4));
-
-// Write a function named getBusinessAddress that receives an Object representing a business as a parameter,
-// and returns a string representation of the it's address.
-
-const mybusiness = {
-  name: "XYZ Functions ltd.",
-  employees: 40,
-  address: {
-    number: 3,
-    street: "Avenuepark",
-    zipCode: 123500,
-  },
-};
-
-function getBusinessAddress(business) {
-  business = mybusiness.address;
-
-  return `${business.street}, number ${business.number}, ${business.zipCode}`;
-}
-
-console.log(getBusinessAddress());
-
-// Write a function named getUserObject that receives 3 parameters:
-
-//a string named firstName
-//a string named lastName
-//a number named age
-
-//and returns an object representing an user, with the properties name and age.
-
-const getUserObject = function (firstName, lastName, age) {
-  const user = { name: firstName + " " + lastName, age };
-
-  return user;
-};
-console.log(getUserObject());
-
-//Write a function named canDriveCar that receives 2 parameters:
-
-//an object named user
-//an object named car
-
-//and returns a boolean indicating if the user can drive the car or not.
-
-// Note: anybody can drive a car if it has at least 18 years old or if the car has an engine smaller than 1000cc.
-
-const canDriveCar = function (user, car) {
-  if (user <= 18 || car < 1000) {
-    return true;
-  } else {
-    return false;
-  }
-};
-
-// Write a function named areAllNumbersEven that receives an Array of numbers as parameter,
-// and returns a boolean indicating if all the numbers are even or not.
-
-function areAllNumbersEven(numbers) {
-  if (numbers % 2 === 0) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-// Write a function named getBiggestNumberInArrays that receives 2 parameters:
-
-//an array of numbers named numbers1
-//another array of numbers named numbers2
-
-//and returns the maximum number between those 2 arrays.
-
-const myNumbers1 = [7, 2, 9];
-const myNumbers2 = [15, 28, 42];
-
-const getBiggestNumberInArrays = function (numbers1, numbers2) {
-  for (let i = 0; i < myNumbers1.length; i++) {
-    numbers1 = myNumbers1[i];
-  }
-
-  for (let j = 0; j < myNumbers2.length; j++) {
-    numbers2 = myNumbers2[j];
-  }
-
-  return Math.max(numbers1, numbers2);
-};
-
-console.log(getBiggestNumberInArrays());
-
-//Write a function named getLongestString that receives an Array of strings as parameter and returns the longest one.
-
-//If the Array is empty, return an empty string.
-
-//If there are multiple strings of the same maximum length, return the first one.
-
-//Practicing Functions (w3resource.com)
-
-//Reverse Number
-
-const reversedNum = function (num) {
-  const convertNum = num.toString();
-
-  return convertNum.split("").reverse().join("");
-};
-
-console.log(reversedNum(47890));
-console.log(reversedNum(285640));
-
-// Write a JavaScript function that checks whether a passed string is a palindrome or not?
-// A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.
-
-function checkPalindrome(str) {
-  const halfString = str / 2 + "";
-  const halfString2 = halfString.split("").reverse().join("");
-  if (halfString === halfString2) {
-    return console.log(
-      `${str} is a Palindrome. It reads the same backward as forward.`
-    );
-  } else {
-    return console.log(`${str} is NOT a Palindrome.`);
-  }
-}
-
-checkPalindrome("madam");
-checkPalindrome("nurses");
-
-// correct answer :
-
-function check_Palindrome(str_entry) {
-  // Change the string into lower case and remove  all non-alphanumeric characters
-  var cstr = str_entry.toLowerCase().replace(/[^a-zA-Z0-9]+/g, "");
-  var ccount = 0;
-  // Check whether the string is empty or not
-  if (cstr === "") {
-    console.log("Nothing found!");
-    return false;
-  }
-  // Check if the length of the string is even or odd
-  if (cstr.length % 2 === 0) {
-    ccount = cstr.length / 2;
-  } else {
-    // If the length of the string is 1 then it becomes a palindrome
-    if (cstr.length === 1) {
-      console.log("Entry is a palindrome.");
-      return true;
-    } else {
-      // If the length of the string is odd ignore middle character
-      ccount = (cstr.length - 1) / 2;
+    if (currentTemp < min) {
+      min = currentTemp;
     }
   }
-  // Loop through to check the first character to the last character and then move next
-  for (var x = 0; x < ccount; x++) {
-    // Compare characters and drop them if they do not match
-    if (cstr[x] != cstr.slice(-1 - x)[0]) {
-      console.log("Entry is not a palindrome.");
-      return false;
-    }
-  }
-  console.log("The entry is a palindrome.");
-  return true;
-}
-check_Palindrome("madam");
-check_Palindrome("nursesrun");
-check_Palindrome("fox");
-
-//Capitalize First Letter of Each Word --- incomplete
-
-const capitalizeFirstLetter = function (str) {
-  const splitWords = str.split(" ")[0][0].toUpperCase();
-  return splitWords;
+  console.log(max, min);
+  return max - min;
 };
 
-console.log(capitalizeFirstLetter("lion is the king of the jungle"));
+const amp = calcAmplitude(temperatures);
+console.log(amp);
+console.log(calcAmplitude(temperatures1));
+console.log(calcAmplitude(temperatures2));
+console.log(calcAmplitude(temperatures3));
+console.log(calcAmplitude(temperatures4));
+console.log(calcAmplitude(temperatures5));
+console.log(calcAmplitude(temperatures6));
+console.log(calcAmplitude(temperatures7));
+
+const calcAmplitudeNew = function (t1, t2) {
+  // function should receive two arrays of temperatures
+  const temps = t1.concat(t2);
+  console.log(temps);
+
+  let max = temps[0];
+  let min = temps[0];
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+
+    if (typeof currentTemp !== "number") continue;
+
+    if (currentTemp > max) {
+      max = currentTemp;
+    }
+
+    if (currentTemp < min) {
+      min = currentTemp;
+    }
+  }
+  console.log(max, min);
+  return max - min;
+};
+const ampNew = calcAmplitudeNew([3, 5, 1], [9, 0, 5]);
+console.log(ampNew);
+
+// Create another function that measures absolute temperature in Kelvin (K):
+
+// const measureKelvin = function () {
+//   const measurement = {
+//     type: "temp",
+//     unit: "celsius",
+//     value: Number(prompt("Degree celsius")),
+//   };
+
+//   console.table(measurement);
+
+//   const kelvin = measurement.value + 273;
+//   return kelvin;
+// };
+
+// console.log(measureKelvin());
+
+// Using a debugger
+// const calcAmplitudeBug = function (t1, t2) {
+//   const temps = t1.concat(t2);
+//   console.log(temps);
+
+//   let max = 0;
+//   let min = 0;
+//   for (let i = 0; i < temps.length; i++) {
+//     const currentTemp = temps[i];
+
+//     if (typeof currentTemp !== "number") continue;
+
+//     if (currentTemp > max) {
+//       max = currentTemp;
+//     }
+
+//     if (currentTemp < min) {
+//       min = currentTemp;
+//     }
+//   }
+//   console.log(max, min);
+//   return max - min;
+// };
+// const ampBug = calcAmplitudeBug([3, 5, 1], [9, 4, 5]);
+// console.log(ampBug);
+
+// Solution Method 2
+const tempAmplitude = function (temps) {
+  let minTemp = Number.MAX_VALUE;
+  let maxTemp = Number.MIN_VALUE;
+
+  for (let i = 0; i < temps.length; i++) {
+    if (typeof temps[i] !== "number") continue;
+
+    minTemp = Math.min(minTemp, temps[i]); // does not work with multiple negative values; temperatures6 array returns 8 instead of 0;
+    maxTemp = Math.max(maxTemp, temps[i]);
+  }
+
+  console.log(maxTemp, minTemp);
+  return maxTemp - minTemp;
+};
+
+const amplitude = tempAmplitude(temperatures);
+console.log(amplitude);
+console.log(tempAmplitude(temperatures1));
+console.log(tempAmplitude(temperatures2));
+console.log(tempAmplitude(temperatures3));
+console.log(tempAmplitude(temperatures4));
+console.log(tempAmplitude(temperatures5));
+console.log(tempAmplitude(temperatures6));
+console.log(tempAmplitude(temperatures7));
+
+// Solution Method 3
+
+const calcTempAmplitude = function (temp) {
+  let max;
+  let min;
+  let errorCounter = 0;
+
+  for (let i = 0; i < temp.length; i++) {
+    const currentValue = temp[i];
+    // This works, able to ignore "error" in the beginning of the string
+    // How can we write this without hard-coding "error"
+    if (currentValue === "error") {
+      errorCounter++;
+      continue;
+    }
+
+    if (max === undefined) {
+      (max = currentValue), (min = currentValue);
+    }
+
+    if (currentValue > max) {
+      max = currentValue;
+    }
+
+    if (currentValue < min) {
+      min = currentValue;
+    }
+
+    if (errorCounter === temp.length) {
+      return "Cannot calculate amplitude without numbers!";
+    }
+    // doesn't work, returns undefined and NaN.
+  }
+  console.log(max, min);
+  return max - min;
+};
+
+console.log(calcTempAmplitude(temperatures));
+console.log(calcTempAmplitude(temperatures1));
+console.log(calcTempAmplitude(temperatures2));
+console.log(calcTempAmplitude(temperatures3));
+console.log(calcTempAmplitude(temperatures4));
+console.log(calcTempAmplitude(temperatures5));
+console.log(calcTempAmplitude(temperatures6));
+console.log(calcTempAmplitude(temperatures7));
+
+// Solution Method 4
+
+const calcAmplitude1 = function (temps) {
+  let max = temps[0];
+  let min = temps[0];
+
+  for (let i = 0; i < temps.length; i++) {
+    if (typeof temps[i] !== "number") continue;
+    if (typeof temps[i] === "number") {
+      max = temps[i];
+      min = temps[i];
+      break;
+    }
+  }
+
+  for (let i = 0; i < temps.length; i++) {
+    const currentTemp = temps[i];
+
+    if (typeof currentTemp !== "number") continue;
+    if (currentTemp > max) {
+      max = currentTemp;
+    }
+    if (currentTemp < min) {
+      min = currentTemp;
+    }
+  }
+  console.log(max, min);
+  return max - min;
+};
+
+console.log(calcAmplitude1(temperatures));
+console.log(calcAmplitude1(temperatures1));
+console.log(calcAmplitude1(temperatures2));
+console.log(calcAmplitude1(temperatures3));
+console.log(calcAmplitude1(temperatures4));
+console.log(calcAmplitude1(temperatures5));
+console.log(calcAmplitude1(temperatures6));
+console.log(calcAmplitude1(temperatures7));
