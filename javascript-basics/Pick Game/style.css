@@ -1,0 +1,172 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    height: 100vh;
+    color: #333;
+    background-image: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide {
+    position: absolute;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.hero {
+    position: relative;
+    width: 85%;
+    max-width: 1000px;
+    min-height: 600px;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(200px);
+    filter: blur();
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    border-radius: .75rem;
+    display: flex;
+    overflow: hidden;
+}
+
+.active {
+    background-color: rgba(255, 255, 255, 0.207);
+}
+
+.player {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.name {
+    margin-bottom: .5em;
+}
+
+.score {
+    color: #c7365f;
+    font-size: 6rem;
+    line-height: 1;
+
+}
+
+.current {
+    background: #c7365f;
+    color: #ffffffc6;
+    font-size: 1.25rem;
+    margin-top: 4em;
+    padding: 1.5rem 3rem 1rem;
+    border-radius: .75rem;
+}
+
+.current-score {
+    color: #fff;
+    font-size: 2.5rem;
+    margin: .5rem 0;
+}
+
+.btn-group {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    padding: 3rem 0 6.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dice {
+    position: absolute;
+    left: 50%;
+    top: 10.3125rem;
+    transform: translateX(-50%);
+    height: 6.25rem;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+    text-wrap: nowrap;
+    font-size: 1.25rem;
+    padding: .75rem 1.25rem;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.btn-roll {
+    margin-top: auto;
+}
+
+.btn-hold {
+    margin-top: 1.25em;
+}

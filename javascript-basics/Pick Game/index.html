@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-3: Pick Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="hero">
+        <h1 class="hide">Pick Game</h1>
+        <div class="player player-0 active">
+            <h2 class="name" id="name-0">Player 1</h2>
+            <p class="score" id="score-0">0</p>
+            <div class="current">
+                <p class="current-label">Current</p>
+                <p class="current-score">0</p>
+            </div>
+        </div>
+        <div class="btn-group">
+            <img src="images/dice-5.png" alt="roll-dice" class="dice">
+            <button class="btn btn-new">🔄️ NEW GAME</button>
+
+            <button class="btn btn-roll">🎲 ROLL DICE</button>
+            <button class="btn btn-hold">📥 HOLD</button>
+
+        </div>
+        <div class="player player-1">
+            <h2 class="name" id="name-1">Player 2</h2>
+            <p class="score" id="score-1">0</p>
+            <div class="current">
+                <p class="current-label">Current</p>
+                <p class="current-score">0</p>
+            </div>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>
