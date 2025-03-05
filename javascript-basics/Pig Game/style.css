@@ -92,7 +92,11 @@ body {
 }
 
 .active {
-    background-color: rgba(255, 255, 255, 0.207);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.active .current {
+    opacity: 1;
 }
 
 .player {
@@ -103,6 +107,15 @@ body {
     align-items: center;
     text-align: center;
     font-size: 1.8rem;
+}
+
+.player-winner {
+    background-color: #2f2f2f;
+}
+
+.player-winner .name {
+    font-weight: 700;
+    color: #c7365f;
 }
 
 .name {
@@ -169,4 +182,8 @@ body {
 
 .btn-hold {
     margin-top: 1.25em;
+}
+
+.hidden {
+    display: none;
 }
