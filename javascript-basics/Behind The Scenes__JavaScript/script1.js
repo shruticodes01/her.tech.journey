@@ -204,8 +204,3 @@ const addArrowFunc = (a, b) => {
   return a + b;
 };
 // addArrowFunc(2, 5); // Uncomment to check the above mentioned error
-
-let temp = 23.7;
-
-temp = temp + 5;
-round(temp);
