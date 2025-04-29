@@ -45,5 +45,3 @@ const restaurant = {
     },
   },
 };
-
-// Spread Operator
