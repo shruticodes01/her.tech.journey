@@ -80,14 +80,16 @@ for (let i = 0; i < books.length; i++) {
 // and if the thirdParty.goodreads.rating property is less than 4.2, reassign it with false.
 
 for (let i = 0; i < books.length; i++) {
-  books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
+  // books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
+  books[i].highlighted =
+    books[i].highlighted && books[i].thirdParty.goodreads.rating >= 4.2;
 
   console.log(
     books[i].title,
     books[i].thirdParty.goodreads.rating,
     books[i].highlighted
   );
-} // Need explanation
+}
 
 // Looping Arrays: The for-of Loop
 
@@ -113,7 +115,7 @@ const allAuthors = [];
 for (const book of books) {
   if (typeof book.author === 'string') {
     allAuthors.push(book.author);
-  } else {
+  } else if (Array.isArray(book.author)) {
     allAuthors.push(...book.author);
   }
 }

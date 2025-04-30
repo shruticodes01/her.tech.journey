@@ -1,7 +1,5 @@
 'use strict';
 
-//Questions : Why does it take the value even though the numGuests property does NOT exist.
-
 // Short-Circuiting --- using the Logical, AND and the OR Operators
 // Logical Operators can:
 // Use ANY data type, return ANY data type, do short-cicuiting / short-circuit evaluation
@@ -121,16 +119,16 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Hello
 
 // // LOGICAL ASSIGNMENT OPERATOR -- ES 2021
 
-// const rest1 = {
-//   name: 'Capri',
-//   // numGuests: 20,
-//   numGuests: 0, // falsy value
-// };
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0, // falsy value
+};
 
-// const rest2 = {
-//   name: 'La Piazza',
-//   owner: 'Giovanni Rossi',
-// };
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
 
 // Assuming we got these restaurant infos from some APIs
 // 1) Set Default number of guests for all the restaurant objects -- rest1 and rest2
@@ -168,13 +166,13 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Hello
 // We need to anonymize the names of the Restaurant owners
 // Basically, if the owner property exists, we want to replace the value of owner proper --- 'Giovanni Rossi' with 'Anonymous'
 
-// AND Logical Operator (&&) -- Returns the first falsy value. If both values are truthy it returns the second (right) operand
+//AND Logical Operator (&&) -- Returns the first falsy value. If both values are truthy it returns the second (right) operand
 // rest1.owner = rest1.owner && 'Anonymous';
 // rest2.owner = rest2.owner && 'Anonymous';
 // console.log(rest1); // Object { name: "Capri", numGuests: 0, owner: undefined } // undefined
 // console.log(rest2); // Object { name: "La Piazza", owner: "Anonymous", numGuests: 10 } // "Anonymous"
 
-// AND Assignment Operator (&&=) -- works only if the left/first operand is truthy.
+//AND Assignment Operator (&&=) -- works only if the left/first operand is truthy.
 // rest1.owner &&= 'Anonymous';
 // rest2.owner &&= 'Anonymous';
 // console.log(rest1); // Object { name: "Capri", numGuests: 0 }
