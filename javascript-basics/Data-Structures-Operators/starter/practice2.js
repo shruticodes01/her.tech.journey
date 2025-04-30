@@ -184,3 +184,35 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Hello
 // the AND Assignment Operator will assign it a value of right/second operand
 // In the above example, the owner property on the rest2 object exists.
 // Therefore, the owner property on the rest2 object is assigned string 'Anonymous'.
+
+// For__of Loop -- Looping over arrays
+
+const menu = [...italianEatery.starterMenu, ...italianEatery.mainMenu];
+console.log(menu);
+
+for (const item of menu) console.log(item);
+
+// This loops over an entire menu array, and in each iteration
+// It gives us access to the current array element (meaning, current item of the menu array)
+// So, when we log item to console, it logs each element / item of the menu array one by one
+// Because this item variable is always the current element in each iteration.
+
+// we can use continue and break keyword in the for__of loop
+
+// If you want to get current index along with current element --- we apply method on menu -- menu.entries()
+for (const item of menu.entries()) {
+  console.log(item); // Creates an array for each item with item index and item name
+  // Array [ 0, "Focaccia" ] Array [ 1, "Bruschetta" ] Array [ 2, "Garlic Bread" ] Array [ 3, "Caprese Salad" ] Array [ 4, "Pizza" ] Array [ 5, "Pasta" ] Array [ 6, "Risotto" ]
+}
+console.log(...menu.entries());
+
+// For printing menu --- Ex: 1: Focaccia 2: Bruschetta ....
+// for (const item of menu.entries()) {
+//   // console.log(`${item[0] + 1}: ${item[1]}`);
+// }
+// console.log(...menu.entries());
+
+// Using destructuring assignment in place of item variable for the printing menu
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
