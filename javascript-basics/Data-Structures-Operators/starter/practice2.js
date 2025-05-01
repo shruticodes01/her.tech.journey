@@ -119,16 +119,16 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Hello
 
 // // LOGICAL ASSIGNMENT OPERATOR -- ES 2021
 
-const rest1 = {
-  name: 'Capri',
-  // numGuests: 20,
-  numGuests: 0, // falsy value
-};
+// const rest1 = {
+//   name: 'Capri',
+//   // numGuests: 20,
+//   numGuests: 0, // falsy value
+// };
 
-const rest2 = {
-  name: 'La Piazza',
-  owner: 'Giovanni Rossi',
-};
+// const rest2 = {
+//   name: 'La Piazza',
+//   owner: 'Giovanni Rossi',
+// };
 
 // Assuming we got these restaurant infos from some APIs
 // 1) Set Default number of guests for all the restaurant objects -- rest1 and rest2
@@ -185,32 +185,32 @@ const rest2 = {
 
 // For__of Loop -- Looping over arrays
 
-const menu = [...italianEatery.starterMenu, ...italianEatery.mainMenu];
-console.log(menu);
+// const menu = [...italianEatery.starterMenu, ...italianEatery.mainMenu];
+// console.log(menu);
 
-for (const item of menu) console.log(item);
+// for (const item of menu) console.log(item);
 
-// This loops over an entire menu array, and in each iteration
-// It gives us access to the current array element (meaning, current item of the menu array)
-// So, when we log item to console, it logs each element / item of the menu array one by one
-// Because this item variable is always the current element in each iteration.
+// // This loops over an entire menu array, and in each iteration
+// // It gives us access to the current array element (meaning, current item of the menu array)
+// // So, when we log item to console, it logs each element / item of the menu array one by one
+// // Because this item variable is always the current element in each iteration.
 
-// we can use continue and break keyword in the for__of loop
+// // we can use continue and break keyword in the for__of loop
 
-// If you want to get current index along with current element --- we apply method on menu -- menu.entries()
-for (const item of menu.entries()) {
-  console.log(item); // Creates an array for each item with item index and item name
-  // Array [ 0, "Focaccia" ] Array [ 1, "Bruschetta" ] Array [ 2, "Garlic Bread" ] Array [ 3, "Caprese Salad" ] Array [ 4, "Pizza" ] Array [ 5, "Pasta" ] Array [ 6, "Risotto" ]
-}
-console.log(...menu.entries());
-
-// For printing menu --- Ex: 1: Focaccia 2: Bruschetta ....
+// // If you want to get current index along with current element --- we apply method on menu -- menu.entries()
 // for (const item of menu.entries()) {
-//   // console.log(`${item[0] + 1}: ${item[1]}`);
+//   console.log(item); // .entries() creates an array for each item with item index and item name
+//   // Array [ 0, "Focaccia" ] Array [ 1, "Bruschetta" ] Array [ 2, "Garlic Bread" ] Array [ 3, "Caprese Salad" ] Array [ 4, "Pizza" ] Array [ 5, "Pasta" ] Array [ 6, "Risotto" ]
 // }
 // console.log(...menu.entries());
 
-// Using destructuring assignment in place of item variable for the printing menu
-for (const [i, el] of menu.entries()) {
-  console.log(`${i + 1}: ${el}`);
-}
+// // For printing menu --- Ex: 1: Focaccia 2: Bruschetta ....
+// // for (const item of menu.entries()) {
+// //   // console.log(`${item[0] + 1}: ${item[1]}`);
+// // }
+// // console.log(...menu.entries());
+
+// // Using destructuring assignment in place of item variable for the printing menu
+// for (const [i, el] of menu.entries()) {
+//   console.log(`${i + 1}: ${el}`);
+// }

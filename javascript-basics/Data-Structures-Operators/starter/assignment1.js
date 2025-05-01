@@ -140,3 +140,97 @@ console.log(allAuthors);
 for (const [i, author] of allAuthors.entries()) {
   console.log(`${i + 1}: ${author}`);
 }
+
+// Below is the bookData array that contains other arrays.
+// Each inner array consists of the property name (first element), and the value (second element).
+// For example, in ['title', 'Computer Networking: A Top-Down Approach'],
+// 'title' is the property name, and 'Computer Networking: A Top-Down Approach' is meant to be the value assigned to that property name.
+
+// Using computed properties, fill the newBook object with the properties and values from the bookData array.
+// The first one is done already.
+
+const bookData = [
+  ['title', 'Computer Networking: A Top-Down Approach'],
+  ['author', ['James F. Kurose', 'Keith W. Ross']],
+  ['publisher', 'Addison Wesley'],
+];
+
+// Do the rest
+const newBook = {
+  [bookData[0][0]]: bookData[0][1],
+  // ...
+  [bookData[1][0]]: bookData[1][1],
+  [bookData[2][0]]: bookData[2][1],
+};
+console.log(newBook);
+
+// Below is the pages variable. Add it as a property of the newBook2 object. Use the shorter way.
+
+const pages = 880;
+
+const newBook2 = {
+  title: 'The C Programming Language',
+  author: ['Brian W. Kernighan', 'Dennis M. Ritchie'],
+  // ...
+
+  pages,
+};
+console.log(newBook2);
+
+// Optional Chaining (?.)
+
+// Write a function called getFirstKeyword that takes the book object as an argument.
+// This function should return the first keyword from the book's keywords property (array)
+// or undefined (if the keywords property doesn't exist).
+// It shouldn't throw an error. Use optional chaining for that.
+
+const getFirstKeyword = function (book) {
+  // console.log(book.keywords?.[0]);
+  return book.keywords?.[0];
+};
+
+getFirstKeyword(books[0]);
+getFirstKeyword(newBook2);
+
+// Looping Objects: Object Keys, Values and Entries
+
+// Below is the entries variable that stores an empty array.
+// Use the for-of loop together with the Object.keys() method
+// to loop over the thirdParty.goodreads property (array) of the first book object from the books array.
+// For each key, push a new array that contains that key to the entries array.
+
+// In the end, the entries array should be filled with arrays containing keys:
+
+const entries1 = [];
+
+const ratingsKey = Object.keys(books[0].thirdParty.goodreads);
+
+for (const key of ratingsKey) {
+  entries1.push([key]); // Create a nested array
+}
+// console.log(entries);
+
+// Use the for-of loop together with the Object.values() method and Array's entries() method
+// to loop over thirdParty.goodreads property of the first book from the books array.
+
+// Push each value to the appropriate inner array in the entries array (use index from entries()).
+
+// NOTE: The Object.values() method returns an array, which means you can call the Array's entries() method on it,
+// for example, Object.entries(books[0].thirdParty.goodreads).entries().
+// The Array's entries() method returns [index, value] arrays for each element in the array.
+
+const ratingsValue = Object.values(books[0].thirdParty.goodreads);
+console.log(ratingsValue);
+
+for (const [i, value] of ratingsValue.entries()) {
+  // console.log(value);
+  entries1[i].push(value);
+}
+console.log(entries1);
+
+// Use the Object.entries() method on the thirdParty.goodreads property of the first book from the books array.
+// Assign the returned value to the variable called entries2.
+//
+
+const entries2 = Object.entries(books[0].thirdParty.goodreads);
+console.log(entries2);
