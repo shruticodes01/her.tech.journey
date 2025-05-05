@@ -1,4 +1,5 @@
 'use strict';
+// Building a football betting app
 
 const game = {
   team1: 'Bayern Munich',
@@ -41,7 +42,7 @@ const game = {
   },
 };
 
-// Building a football betting app
+// CHALLENGE ---- 01
 
 // 1) Create one player array for each team (variables 'players1' and 'players2')
 
@@ -90,3 +91,66 @@ team1 < team2 && console.log('Team1 is more likely to win');
 team1 > team2 && console.log('Team2 is more likely to win');
 // First, we check whether the odds of team1 < team2 or team1 > team2
 // Whichever team has lower odds than the other is more likely to win
+
+// CHALLENGE ---- 02
+
+// 1) Loop over the game.scored array and print each player name to the console,
+// along with the goal number (Example: "Goal 1: Lewandowski")
+
+const goalies = game.scored;
+for (const [i, goal] of goalies.entries()) {
+  console.log(`Goal ${i + 1}: ${goal}`);
+}
+
+// 2) Use a loop to calculate the average odd and log it to the console (We already
+// studied how to calculate averages, you can go check if you don't remember)
+
+let oddsSum = 0;
+const oddsValue = Object.values(game.odds);
+for (const value of oddsValue) {
+  oddsSum += value;
+}
+const oddsAvg = oddsSum / oddsValue.length;
+console.log(oddsAvg);
+
+// 3) Print the 3 odds to the console, but in a nice formatted way, exactly like this:
+// Odd of victory Bayern Munich: 1.33
+// Odd of draw: 3.25
+// Odd of victory Borrussia Dortmund: 6.5
+// Get the team names directly from the game object, don't hardcode them(except for "draw").
+// Hint: Note how the odds and the game objects have the same property names
+
+// const gameOdds = Object.entries(game.odds);
+
+const oddEntries = Object.entries(game.odds);
+oddEntries[0][0] = ['victory' + ' ' + game.team1];
+oddEntries[1][0] = ['draw'];
+oddEntries[2][0] = ['victory' + ' ' + game.team2];
+console.log(oddEntries);
+
+for (const [key, value] of oddEntries) {
+  console.log(`Odd of ${key}: ${value}`);
+}
+
+// SOLUTION by Jonas :
+
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr}: ${odd}`);
+}
+
+// So, in the loop we have created variable team, which is equal to team1 or team2 of the game.odds
+// Next, with the ternary operator we check whether team is x, if yes we call it 'draw'
+// else we call it `victory ${game[team]}`.
+// And ${game[team]} code selects the same property name on the game object
+
+// 4) Bonus: Create an object called 'scorers' which contains the names of the
+// players who scored as properties, and the number of goals as the value. In this
+// game, it will look like this:
+// {
+// Gnarby: 1,
+// Hummels: 1,
+// Lewandowski: 2
+// }
+
+// Need to solve this later

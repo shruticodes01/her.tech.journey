@@ -234,3 +234,67 @@ console.log(entries1);
 
 const entries2 = Object.entries(books[0].thirdParty.goodreads);
 console.log(entries2);
+
+// Sets
+
+// Below is the allKeywords variable, which stores an empty array.
+// Loop over the books array, and fill the allKeywords array with the keywords coming from the keywords property of each book object.
+// The allKeywords array should have just one level (no nested arrays).
+
+// Use whatever loop and methods you want.
+// You can also use the spread syntax. In the end,
+// the allKeywords array should look more or less like this: ['computer science', 'programming', 'algorithms', 'data structures', ...].
+
+const allKeywords = [];
+
+for (let i = 0; i < books.length; i++) {
+  const allBooksKeywords = books[i].keywords;
+  allKeywords.push(...allBooksKeywords);
+}
+console.log(allKeywords);
+
+// The allKeyword array contains duplicates.
+// Remove them by creating a Set out of that array.
+// Assign the newly created set to the uniqueKeywords variable.
+const uniqueKeywords = new Set(allKeywords);
+
+// Add two more keywords to the uniqueKeywords set, for example, 'coding' and 'science'.
+uniqueKeywords.add('coding');
+uniqueKeywords.add('science');
+
+// Delete 'business' from the uniqueKeywords set.
+uniqueKeywords.delete('business');
+
+// Create an array out of the uniqueKeywords set, and assign it to the uniqueKeywordsArr variable.
+const uniqueKeywordsArr = [...uniqueKeywords];
+console.log(uniqueKeywordsArr);
+
+// Delete all items from the uniqueKeywords set.
+uniqueKeywords.clear();
+
+// MAPS -- Fundamentals
+
+// Create a new book, but this time, as a Map. Assign it to the bookMap variable. Use this array as initial data:
+const bookMap = new Map();
+bookMap.set('title', 'Clean Code').set('author', 'Robert C. Martin');
+console.log(bookMap);
+
+const bookMapJonas = new Map([
+  ['title', 'Clean Code'],
+  ['author', 'Robert C. Martin'],
+]);
+console.log(bookMapJonas);
+
+// Set a new key in bookMap called pages, and assign it with a number 464.
+bookMap.set('pages', 464);
+
+// Get the title and author values from bookMap, and log to the console a string formatted like that: "${title} by ${author}".
+console.log(`${bookMap.get('title')} by ${bookMap.get('author')}`); // Clean Code by Robert C. Martin
+
+// Get the size of bookMap, and log it to the console.
+console.log(bookMap.size); // 3
+
+// Check if bookMap has the author key. and if so, log "The author of the book is known" to the console.
+bookMap.has('author')
+  ? console.log('The author of the book is known')
+  : undefined;
