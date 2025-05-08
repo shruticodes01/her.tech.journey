@@ -71,3 +71,71 @@ restMap.set(document.querySelector('h1'), 'Heading');
 console.log(restMap);
 
 // MAPS -- Iterations
+
+// 1) Creating a new Map() by passing in an Array -- instead of set() Method.
+// -- This Array can contain multiple Arrays.
+// -- The first position in each of these Arrays will be the ---  Key
+
+// Example : Implementing a quiz
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]);
+console.log(question);
+// Map(7) { question → "What is the best programming language in the world?", 1 → "C", 2 → "Java", 3 → "JavaScript", correct → 3, true → "Correct 🎉", false → "Try again!" }
+
+// NOTE: The above ARRAY structure is the same as the ARRAY structure returned on Object.entries().
+// --- An Array of Arrays
+console.log(Object.entries(openingHours)); // Array(3) [ (2) […], (2) […], (2) […] ]
+
+// ​0: Array [ "thu", {…} ] -- 0: "thu" 1: Object { open: 12, close: 22 }
+// 1: Array [ "fri", {…} ] -- 0: "fri" 1: Object { open: 11, close: 23 }
+// 2: Array [ "sat", {…} ] -- 0: "sat" 1: Object { open: 0, close: 24 }
+// So, here Array values on position 1 are the Keys --- "thu" "fri" and "sat"
+// And on position 2 are the Values of those Keys.
+
+// 2) Convert Object to Map
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap); // Map(3) { thu → {…}, fri → {…}, sat → {…} }
+// 0: thu → Object { open: 12, close: 22 }
+// 1: fri → Object { open: 11, close: 23 }
+// 2: sat → Object { open: 0, close: 24 }
+
+// 3) Maps are Iterables
+
+// Print the question
+console.log(question.get('question'));
+
+// Using for__loop to print the Answer Options from the question Map
+for (const [key, value] of question) {
+  if (typeof key === 'number') {
+    console.log(`Answer ${key}: ${value}`);
+  }
+}
+
+// Converting user response to a number
+// const answer = Number(prompt('Your Answer'));
+
+//Generate boolean value, answer === 3 is true
+//question.get(true); true is key whose value is 'Correct 🎉'
+// console.log(question.get(answer === question.get('correct')));
+
+// Converting Map to an Array -- using the SPREAD Operator
+
+const questionArr = [...question];
+console.log(questionArr); // -- An Array of Arrays
+// Array(7) [ (2) […], (2) […], (2) […], (2) […], (2) […], (2) […], (2) […] ]
+
+// Method on Maps that are on both Objects and Arrays
+//question.keys() //question.values() //question.entries()
+
+//To be able to use elements on applying method on Maps
+//We convert them into an Array and use SPREAD Operator to get individual elements
+console.log([...question.keys()]);
+console.log([...question.values()]);
