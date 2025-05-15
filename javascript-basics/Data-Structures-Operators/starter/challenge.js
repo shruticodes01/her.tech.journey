@@ -225,3 +225,82 @@ for (const [min, event] of gameEvents) {
   const half = min <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${min}: ${event}`);
 }
+
+// challenge --- 04
+
+// Write a program that receives a list of variable names written in underscore_case
+// and convert them to camelCase.
+// The input will come from a textarea inserted into the DOM (see code below to
+// insert the elements), and conversion will happen when the button is pressed
+
+// const testData = [
+//   'underscore_case',
+//   ' first_name',
+//   'Some_Variable',
+//   ' calculate_AGE',
+//   'delayed_departure',
+// ];
+
+// const textArea = document.createElement('textarea');
+// const btn = document.createElement('button');
+
+// document.body.append(textArea);
+// document.body.append(btn);
+// // const testData = textArea.value;
+// textArea.value = testData || textArea.value;
+// console.log(textArea);
+
+// let finalOutput;
+// const camelCasedData = [];
+// const convertData = function () {
+//   for (let data of testData) {
+//     data = data.trim();
+//     const splitData = data.split('_').toString().toLowerCase();
+
+//     const strPart1 = splitData.slice(0, splitData.indexOf(','));
+
+//     const strPart2 =
+//       splitData
+//         .slice(splitData.indexOf(',') + 1, splitData.indexOf(',') + 2)
+//         .toUpperCase() + splitData.slice(splitData.indexOf(',') + 2);
+
+//     const newStr = strPart1.concat(strPart2);
+
+//     camelCasedData.push(newStr);
+//   }
+//   console.log(camelCasedData);
+
+//   for (let i = 0; i < camelCasedData.length; i++) {
+//     finalOutput = `${camelCasedData[i].padEnd(20, ' ')} ${'✅'.repeat(i + 1)}`;
+//     console.log(finalOutput);
+//   }
+//   return finalOutput;
+// };
+// // convertData(textArea);
+
+// btn.addEventListener('click', function () {
+//   textArea.value = convertData();
+// });
+
+//Jonas -- solution
+const textAreaJ = document.createElement('textarea');
+const btnElJ = document.createElement('button');
+
+document.body.append(textAreaJ);
+document.body.append(btnElJ);
+
+btnElJ.addEventListener('click', function () {
+  const text = textAreaJ.value;
+  const rows = text.split('\n');
+
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+    console.log(first, second, row);
+
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+  }
+});

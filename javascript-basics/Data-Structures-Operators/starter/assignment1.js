@@ -311,3 +311,227 @@ for (const [key, value] of firstBookMap) {
     console.log(key);
   }
 }
+
+/// WORKING WITH STRINGS -- 1
+
+// Take the ISBN property of the first book from the books array, and log to the console characters at index 6, 4, 9 and 8.
+// Use bracket notation to access individual characters.
+
+console.log(
+  books[0].ISBN[6],
+  books[0].ISBN[4],
+  books[0].ISBN[9],
+  books[0].ISBN[8]
+); // 1337
+
+// Below is the quote variable that stores a string. Find the index of the word 'chess', and log it to the console.
+const quote =
+  'A computer once beat me at chess, but it was no match for me at kick boxing';
+console.log(quote.indexOf('chess')); // 27
+
+// Extract the word "boxing" from the same quote string, and log it to the console.
+console.log(quote.slice(quote.lastIndexOf(' ') + 1));
+
+// Some authors are noted as "(Contributor)", for example "Julie Sussman (Contributor)".
+// Create a function called isContributor that takes an author's name as an argument,
+// and returns either true (if he's a contributor) of false (if he's not a contributor).
+// The string "(Contributor)" is always the last part of the author's name string.
+
+// const isContributor = function (name) {
+//   const c = name.slice(name.lastIndexOf(' ') + 1);
+//   if (c === '(Contributor)') {
+//     console.log(true);
+//   } else {
+//     console.log(false);
+//   }
+// };
+
+function isContributor(author) {
+  console.log(author.lastIndexOf('(Contributor)') !== -1);
+  // return author.lastIndexOf('(Contributor)') !== -1;
+}
+
+isContributor('Robert Sedgewick');
+isContributor('Julie Sussman (Contributor)');
+
+/// WORKING WITH STRINGS -- 2
+
+// Write a function called normalizeAuthorName that takes an author's name (string) as an argument,
+// and returns the same string, but the first name and last name are capitalized, and the "(Contributor)" part is removed (if exists).
+
+// You can be sure that the author's name always consists of two words separated by a space,
+// and possibly ends with "(Contributor)". The string may also contain trailing spaces.
+
+// Shruti -- Solution -1
+// const normalizeAuthorName1 = function (author) {
+//   const name = author.slice(0, author.lastIndexOf(' ')).toLowerCase().trim();
+//   console.log(name);
+
+//   const splitName = name.split(' ');
+//   console.log(splitName);
+
+//   console.log(
+//     splitName[0][0].toUpperCase() +
+//       splitName[0].slice(1) +
+//       ' ' +
+//       splitName[1][0].toUpperCase() +
+//       splitName[1].slice(1)
+//   );
+// };
+
+// normalizeAuthorName1('  JuliE sussMan (Contributor)');
+// normalizeAuthorName('Robert sedgewick'); // -- My solution - 1, doesn't work in this case
+
+// Solution ---2
+const normalizeAuthorName = function (author) {
+  author = author.trim();
+  let firstName;
+  let lastName;
+  if (!author.endsWith('(Contributor)')) {
+    author = author.split(' ');
+    firstName = author[0].toLowerCase();
+    lastName = author[1].toLowerCase();
+    firstName = firstName[0].toUpperCase() + firstName.slice(1);
+    lastName = lastName[0].toUpperCase() + lastName.slice(1);
+    return firstName + ' ' + lastName;
+  } else {
+    author = author.slice(0, author.lastIndexOf(' ')).split(' ');
+    firstName = author[0].toLowerCase();
+    lastName = author[1].toLowerCase();
+    firstName = firstName[0].toUpperCase() + firstName.slice(1);
+    lastName = lastName[0].toUpperCase() + lastName.slice(1);
+    return firstName + ' ' + lastName;
+  }
+};
+
+console.log(normalizeAuthorName('  JuliE sussMan (Contributor)'));
+console.log(normalizeAuthorName('Robert sedgewick'));
+
+// Solution by Jonas
+function normalizeAuthorNameJ(author) {
+  author = author.trim();
+  const firstName = author.slice(0, author.indexOf(' '));
+
+  let lastName = '';
+  if (author.indexOf(' ') === author.lastIndexOf(' ')) {
+    lastName = author.slice(author.indexOf(' ') + 1, author.length);
+  } else {
+    lastName = author.slice(author.indexOf(' ') + 1, author.lastIndexOf(' '));
+  }
+
+  const capitalizedFirstName =
+    firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
+  const capitalizedLastName =
+    lastName[0].toUpperCase() + lastName.slice(1).toLowerCase();
+
+  return capitalizedFirstName + ' ' + capitalizedLastName;
+}
+
+console.log(normalizeAuthorNameJ('  JuliE sussMan (Contributor)'));
+console.log(normalizeAuthorNameJ('Robert sedgewick'));
+
+// Take the title of the second book (books[1]) from the books array, and replace the word "Programs" with "Software".
+// Assign the new string to the newBookTitle variable.
+
+const newBookTitle = books[1].title.replace('Programs', 'Software');
+console.log(newBookTitle);
+
+// Write a function called logBookTheme that takes book's title (string), and logs to the console:
+
+// "This book is about computers" if the title starts with the word "computer",
+
+// "This book is about algorithms and data structures" if the title includes both the "algorithms" and "structures" words,
+
+// and, "This book is about some systems, but definitely not about operating systems"
+// if the title ends with the word "system" or "systems", but doesn't include the word "operating".
+
+const logBookTheme = function (title) {
+  title = title.toLowerCase();
+  for (const book of books) {
+    if (book.title.startsWith('computer')) {
+      console.log('This book is about computers');
+    } else if (
+      book.title.includes('algorithms') &&
+      book.title.includes('structures')
+    ) {
+      console.log('This book is about algorithms and data structures');
+    } else if (
+      (book.title.endsWith('system') || book.title.endsWith('systems')) &&
+      !book.title.includes('operating')
+    ) {
+      console.log(
+        'This book is about some systems, but definitely not about operating systems'
+      );
+    }
+  }
+};
+
+// WORKING WITH STRINGS --- 3
+
+// Below is the bookCategories variable that stores a string of categories.
+// Each category is separated with a semicolon, for example, in a string "science;computing", 'science' and 'computing' are separate categories.
+
+// Write a function called logBookCategories that takes a string of categories separated with semicolons,
+// and logs each category to the console (as separate strings).
+
+const bookCategories =
+  'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+
+const logBookCategories = function (str) {
+  const categories = str.split(';');
+  for (let category of categories) {
+    console.log(category);
+  }
+};
+logBookCategories(bookCategories);
+
+// Now, the opposite. Each book from the books array has the keywords property.
+
+// Write a function called getKeywordsAsString that takes the books array as an argument,
+// collects keywords from each book, removes duplicates, and then joins them to create a single string where keywords are separated by a semicolon.
+
+const allBooksKeywords = [];
+const getKeywordsAsString = function (books) {
+  for (const book of books) {
+    allBooksKeywords.push(...book.keywords);
+  }
+  const uniqueBooksKeywords = [...new Set(allBooksKeywords)];
+  return uniqueBooksKeywords.join(';');
+};
+
+console.log(getKeywordsAsString(books));
+
+// Below is the bookChapters array that contains inner arrays.
+// Each inner array consists of a chapter's title, and the number of a page, for example, in ['The Basics', 14],
+// 'The Basics' is the chapter's title, and 14 is the number of a page.
+
+// Write a function called logBookChapters that takes an array of arrays (like bookChapters) as an argument,
+// and logs each chapter's name to the console together with the page number.
+// The page number should be separated from the chapter's name with underscores (take a look at the example below).
+
+// Use the padEnd method.
+
+const bookChapters = [
+  ['The Basics', 14],
+  ['Sorting', 254],
+  ['Searching', 372],
+  ['Graphs', 526],
+  ['Strings', 706],
+];
+
+// const logBookChapters = function () {
+//   for (const chapter of bookChapters) {
+//     const chapterStr = chapter.toString().replace(',', '___ ___ ___ ');
+//     console.log(chapterStr);
+//   }
+// };
+
+// using padEnd
+
+const logBookChapters = function () {
+  for (const [chapter, pages] of bookChapters) {
+    console.log(chapter.padEnd(20, '_') + ' ' + pages);
+  }
+};
+
+logBookChapters(bookChapters);
