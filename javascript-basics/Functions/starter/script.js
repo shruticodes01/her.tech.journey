@@ -134,11 +134,37 @@ const high5 = function () {
   console.log('👋');
 };
 
+// document.body.addEventListener('click', high5);
 // // Here, in the addEventListener we are passing the high5 function
 // // So, on every click on the body, the addEventlistener function calls high5 function
 // // which then logs a waving hand in the console.
-// document.body.addEventListener('click', high5);
 
 // Array Method --- forEach() as a Higher Order function
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+// Higher Order function --- Functions return from functions
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+// console.log(greet('Hey'));
+const greeterHey = greet('Hey');
+
+greeterHey('Jonas'); // Hey Jonas
+greeterHey('Martha'); // Hey Martha
+
+greet('Hello')('Jonas'); // Hello Jonas
+
+// Not a returning function, instead an arrow function taking two parameters.
+const greetArr = (greeting, name) => console.log(`${greeting} ${name}`);
+greetArr('Hey', 'Shruti');
+
+// What was expected: One arrow function returning another arrow function.
+// Solution by Jonas:
+
+const greetArrow = greeting => name => console.log(`${greeting} ${name}`);
+
+greetArrow('Hi')('Shruti'); // Hi Shruti
