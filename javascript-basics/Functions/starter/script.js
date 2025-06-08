@@ -57,11 +57,11 @@ const jonas = {
 const checkIn = function (flightNum, passenger) {
   flightNum = 'LH999';
   passenger.name = 'Mr.' + passenger.name;
-  if (passenger.passport === 24739479284) {
-    alert('Checked in');
-  } else {
-    alert('Wrong Passport!');
-  }
+  // if (passenger.passport === 24739479284) {
+  //   alert('Checked in');
+  // } else {
+  //   alert('Wrong Passport!');
+  // }
 };
 
 checkIn(flight, jonas); // alerts -- Checked in
